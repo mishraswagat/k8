@@ -1,0 +1,12 @@
+Go to aws management console and search of IAM
+Create a user 
+provide admin permission
+create aws CLI access key and secret key
+download the file and save it
+
+come to ec2 server and type "aws configure"
+provide the access and secret key along with aws region
+
+cat ~/.aws/* 
+This is to verify if its correct or not
+
