@@ -52,5 +52,7 @@ ssh-keygen
 run this to create cluster
 eksctl create cluster --config-file=cluster.yml
 
-
+######################################################################################################
+How to delete cluster ?
+eksctl delete cluster --config-file=cluster.yml
 

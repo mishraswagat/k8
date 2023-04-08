@@ -52,4 +52,8 @@ spec:
           ports:
             - containerPort: 80
 
+How to terminate all kubernetes service in default namespace?
+kubectl delete all --all -n default
+
+How to terminate cluster in k8s ?
 
