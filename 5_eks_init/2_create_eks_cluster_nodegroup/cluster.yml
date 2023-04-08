@@ -1,0 +1,39 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-eaplcs
+  region: us-east-1                                     # Region Virginia
+  version: "1.23"
+
+vpc:
+  id: "vpc-0fa54cc179280f801"                           # Give VPC
+  nat:
+    gateway: Disable
+  subnets:
+    public:
+      us-east-1a:                              
+          id: "subnet-08b91f456013e5ad3"                #EKS_PUBLIC_1 SUBNET
+      us-east-1b:
+          id: "subnet-08490422c02b7fca4"                #EKS_PUBLIC_2 SUBNET
+
+managedNodeGroups:
+  #  - name: servers
+  #  instanceType: m5.xlarge
+  #  minSize: 1
+  #  desiredCapacity: 2
+  #  maxSize: 4
+  #  volumeSize: 50
+  #  ssh:
+  #    allow: true                                       # will use ~/.ssh/id_rsa.pub as the default ssh key
+  - name: spot
+    instanceTypes: [m4.xlarge,m5.xlarge,m5a.xlarge,m5ad.xlarge,m5d.xlarge,m6a.xlarge,m6i.xlarge]
+    spot: true
+    minSize: 1
+    desiredCapacity: 1
+    maxSize: 5
+    volumeSize: 30
+    ssh:
+      allow: true                                       # will use ~/.ssh/id_rsa.pub as the default ssh key
+
